@@ -1,0 +1,18 @@
+# Development and planning files
+Pre-Development/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Temporary scripts
+/tmp/
+.env
+.vscode/

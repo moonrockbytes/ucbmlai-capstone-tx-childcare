@@ -1,0 +1,21 @@
+# Core data science
+pandas
+numpy
+
+# Machine learning
+scikit-learn
+xgboost
+shap
+
+# Visualisation
+matplotlib
+seaborn
+
+# NLP
+rapidfuzz
+
+# API and data collection (needed only for Notebook 00)
+requests
+
+# Standard library (no install needed)
+# os, pickle, warnings, datetime — built into Python
