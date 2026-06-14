@@ -114,40 +114,33 @@ Both models were evaluated on centers they had never seen during training. I use
 
 **Do Texas HHSC compliance records and families' Google reviews agree on which daycare centers are high quality — and can a parent rely on compliance records alone to make an informed childcare decision?**
 
-No. The inspection records and the reviews are largely telling different stories.
+No. The inspection records and the reviews are telling different stories.
 
-When I used only inspection records to predict which centers families rated highly, the predictions were right about 64% of the time which is barely better than a coin flip. When I used what families actually wrote in their Google reviews, the predictions were right 84% of the time. That gap held across every city in the study.
+When I used only inspection records to predict which centers families rated highly, the predictions were right about 64% of the time, which is barely better than a coin flip. When I used what families actually wrote in their Google reviews, the predictions were right 84% of the time. That gap held across every city in the study.
 
 A parent checking only the inspection record before choosing a daycare is working with information that is far less reliable than what other families already wrote. Reading even two or three reviews gives a more accurate picture than anything in the government database.
 
 | Model | Identifies excellent centers | Average rating error | Explains rating differences |
-|---|---|---|---|
+|---|:---:|:---:|:---:|
 | TX HHSC Compliance Records (Model 1) | **64%** | **±0.56 stars** | **6%** |
 | Google Review Text — Center Level (Model 2A) | **84%** | **±0.45 stars** | **39%** |
 | Google Review Text — Individual Reviews (Model 2B.2) | **80%** | **±0.49 stars** | **26%** |
 
-**The central finding**
+The first column shows how often each model correctly identified which centers families actually rated as excellent. The second shows how far off the predicted star rating was on average. The third shows how much of the difference between centers each source can explain. A higher percentage means the source is telling me more about why one center is better than another.
 
-Inspection records are a weak signal for center quality. What families write is a strong one. The gap is large and consistent no matter how I looked at it.
+**What I found in the TX HHSC inspection records**
 
-**What TX HHSC inspection records told me**
+I expected the inspection model to lean on violation counts and corrective actions. It did not. The most important factors turned out to be how long a center had been open, how many total inspections it had accumulated over its lifetime, and whether it accepted government subsidy payments. Those are proxies for age and demographics, not quality. The actual violations mattered less than I assumed they would. This helps explain why compliance records are such a weak predictor. The inspection framework is measuring operational history, not the quality of care families actually experience.
 
-When the inspection model makes a prediction, it is right about which centers families rate as excellent roughly 64% of the time. It is off by more than half a star on average when predicting the exact rating. Inspection data explains only 6% of the variation in how centers are actually rated.
+**What I found in the Google review text**
 
-What surprised me was what the model leaned on. The most important factors were not the things I expected such as violation counts, corrective actions, inspection outcomes. The model mostly cared about how long a center had been open, how many total inspections it had accumulated over its lifetime, and whether it accepted government subsidy payments. Those last two are proxies for age and demographics, not quality. The actual violations mattered less than I assumed they would.
-
-**What Google review text told me**
-
-The the model trained on review text correctly identifies excellent centers 84% of the time. It predicts star ratings with an average error of about 0.45 stars (compared to 0.56 stars for the inspection model). Review text explains 39% of the variation in ratings. This is more than six times what inspection data explains.
-
-The words that predict high ratings: love, amazing, wonderful, caring, staff, thank, happy, best. The words that predict low ratings: rude, unprofessional, horrible, worst. None of this vocabulary appears anywhere in an inspection report. Parents care about how staff treat their children. Inspectors count violations.
+The words families use tell a completely different story. The words that most reliably predict a high-rated center are: love, amazing, wonderful, caring, staff, thank, happy, best. The words that most reliably predict a poorly rated center are: rude, unprofessional, horrible, worst. None of this vocabulary appears anywhere in an inspection report. Families write about how staff treat their children. Inspectors count violations. These are fundamentally different signals about a center's quality.
 
 ![What each framework measures — SHAP (compliance) vs word coefficients (review text)](images/comparison/comparison_frameworks_shap_vs_tfidf.png)
 
-
 **The finding that changed how I think about this**
 
-When we chose our Austin daycare, I went with the center that had better Google reviews even though its inspection record was not as clean. I could not explain that with data at the time. I just trusted the reviews more than the violations count.
+When I chose our Austin daycare, I went with the center that had better Google reviews even though its inspection record was not as clean. I could not explain that with data at the time. I just trusted the reviews more than the violations count.
 
 The analysis confirmed it was the right call. Review text is a substantially stronger signal than inspection records across every city and every way I measured it. I did not expect the gap to be this large.
 
@@ -157,8 +150,7 @@ San Antonio showed the smallest gap. Compliance records perform relatively bette
 
 ![Per-city AUC — compliance records vs review text across all five cities](images/comparison/comparison_city_auc.png)
 
-
-If I were searching for daycare again today, I would spend almost no time on the TX HHSC portal and considerably more time reading what families wrote especially watching for the words "rude" and "unprofessional" which turned out to be the two strongest predictors of a poorly rated center across all models.
+If I were searching for daycare again today, I would spend almost no time on the TX HHSC portal and considerably more time reading what families wrote, especially watching for the words "rude" and "unprofessional" which turned out to be the two strongest predictors of a poorly rated center across all models.
 
 **Seeing the gap**
 
@@ -166,7 +158,7 @@ The scatter plots and ROC curves below show the gap visually. Each tells the sam
 
 ![Predicted vs actual ratings — all three models side by side](images/comparison/comparison_scatter_all_3_models.png)
 
-The left panel shows compliance predictions compressed into a flat band — the model cannot distinguish poor centers from excellent ones. The center and right panels show review text predictions tracking the diagonal, meaning the models actually distinguish quality levels across the full rating range.
+The left panel shows compliance predictions compressed into a flat band. The model cannot distinguish poor centers from excellent ones. The center and right panels show review text predictions tracking the diagonal, meaning the models actually distinguish quality levels across the full rating range.
 
 ![ROC curves — all three models](images/comparison/comparison_roc_all_3_models.png)
 
