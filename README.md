@@ -118,7 +118,7 @@ No. The inspection records and the reviews are telling different stories.
 
 When I used only inspection records to predict which centers families rated highly, the predictions were right about 64% of the time, which is barely better than a coin flip. When I used what families actually wrote in their Google reviews, the predictions were right 84% of the time. That gap held across every city in the study.
 
-A parent checking only the inspection record before choosing a daycare is working with information that is far less reliable than what other families already wrote. Reading even two or three reviews gives a more accurate picture than anything in the government database.
+A parent checking only the inspection record before choosing a daycare is working with information that is far less reliable than what other families already wrote. Reading even two or three reviews gives a more accurate picture than anything in the TX HHSC database.
 
 | Model | Identifies excellent centers | Average rating error | Explains rating differences |
 |---|:---:|:---:|:---:|
