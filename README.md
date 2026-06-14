@@ -8,7 +8,7 @@ Capstone Project | June 2026
 
 ---
 
-> **TL;DR:** 1,697 active licensed daycares studied across Austin, Dallas, Fort Worth, Houston, and San Antonio. 7,550 Google review texts analyzed. Two models compared: one trained on government inspection records, one on what families actually wrote. The inspection model correctly identifies excellent centers 64% of the time. The review model gets it right 84% of the time. Review text explains 39% of why one center rates better than another; inspection records explain 6%. The finding that changed how I choose: I trusted Google reviews over a cleaner inspection record for our Austin daycare. The data confirmed it was the right call.
+> **TL;DR:** 1,697 active licensed daycares studied across Austin, Dallas, Fort Worth, Houston, and San Antonio. 7,550 Google review texts analyzed. Two models compared: one trained on TX government inspection records, one on what families actually wrote on Google reviews. The inspection model correctly identifies excellent centers 64% of the time. The review model gets it right 84% of the time. Review text explains 39% of why one center rates better than another; inspection records explain 6%. The finding that changed how I choose: I trusted Google reviews over a cleaner inspection record for our Austin daycare. The data confirmed it was the right call.
 
 ## Contents
 
@@ -39,7 +39,7 @@ So I built models to find out.
 
 **What I found**
 
-The reviews were right to trust. A model trained on Texas daycare inspection records could only correctly identify excellent daycare centers 64% of the time — barely better than a coin flip. A model trained on what families actually wrote in their Google reviews correctly identified excellent centers 84% of the time.
+The reviews were right to trust. A model trained on Texas daycare inspection records could only correctly identify excellent daycare centers 64% of the time which is barely better than a coin flip. A model trained on what families actually wrote in their Google reviews correctly identified excellent centers 84% of the time.
 
 That gap of 20 percentage points is not a rounding error. It means that if you are a parent in Texas relying on the government's inspection data to pick a daycare, you are getting genuinely weak information. Reading even three or four reviews is a better use of your ten minutes.
 
@@ -170,7 +170,7 @@ The green curve (review text) lifts sharply toward the upper left corner. The or
 
 **For parents**
 
-1. Read the google reviews first, before checking the TX HHSC inspection record. Even two or three reviews are more useful than a clean inspection record.
+1. Read the Google reviews first, before checking the TX HHSC inspection record. Even two or three reviews are more useful than a clean inspection record.
 2. Watch for the words "rude" and "unprofessional" in reviews. These are the two strongest predictors of a poorly rated center across all models.
 3. If a center has very few reviews, the inspection record is a weak positive signal but not enough to rely on alone.
 4. If you are searching in Houston, be especially skeptical of inspection data. The analysis shows it is particularly unreliable there as a quality signal.
@@ -194,7 +194,7 @@ For what it is worth: I went with the center that had better reviews even when i
 
 - **More reviews per center.**
 
-    The Google Places API only returned five reviews per center. Centers with hundreds of reviews would give the models far better signal and reduce the noise in the current analysis.
+    The Google Places API returns at most five reviews per center regardless of how many exist on Google. A center with hundreds of reviews on Google has only five captured in this analysis. Collecting the full review history using a bulk review data provider such as Outscraper would give the models substantially more signal and reduce the noise from the small sample. Adding reviews from other platforms such as Yelp would also test whether the compliance-vs-text finding holds across different review sources.
 
 - **Expand beyond Texas.**
 
