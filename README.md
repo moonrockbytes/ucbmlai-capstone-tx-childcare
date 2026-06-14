@@ -116,7 +116,7 @@ Both models were evaluated on centers they had never seen during training. I use
 
 No. The inspection records and the reviews are largely telling different stories.
 
-When I used only inspection records to predict which centers families rated highly, the predictions were right about 64% of the time — barely better than a coin flip. When I used what families actually wrote in their Google reviews, the predictions were right 84% of the time. That gap held across every city in the study.
+When I used only inspection records to predict which centers families rated highly, the predictions were right about 64% of the time which is barely better than a coin flip. When I used what families actually wrote in their Google reviews, the predictions were right 84% of the time. That gap held across every city in the study.
 
 A parent checking only the inspection record before choosing a daycare is working with information that is far less reliable than what other families already wrote. Reading even two or three reviews gives a more accurate picture than anything in the government database.
 
@@ -160,16 +160,17 @@ San Antonio showed the smallest gap. Compliance records perform relatively bette
 
 If I were searching for daycare again today, I would spend almost no time on the TX HHSC portal and considerably more time reading what families wrote especially watching for the words "rude" and "unprofessional" which turned out to be the two strongest predictors of a poorly rated center across all models.
 
-**How big is the gap, really?**
+**Seeing the gap**
 
+The scatter plots and ROC curves below show the gap visually. Each tells the same story from a different angle.
 
 ![Predicted vs actual ratings — all three models side by side](images/comparison/comparison_scatter_all_3_models.png)
 
+The left panel shows compliance predictions compressed into a flat band — the model cannot distinguish poor centers from excellent ones. The center and right panels show review text predictions tracking the diagonal, meaning the models actually distinguish quality levels across the full rating range.
 
+![ROC curves — all three models](images/comparison/comparison_roc_all_3_models.png)
 
-The different approach using individual reviews rather than combining all reviews per center confirmed the same finding. The result held across two independent methods. ![ROC curves — all three models](images/comparison/comparison_roc_all_3_models.png)
-
-TX HHSC compliance inspection records are worth checking but they are far less reliable than what families actually wrote on Google reviews.
+The green curve (review text) lifts sharply toward the upper left corner. The orange curve (compliance records) barely rises above the diagonal. TX HHSC compliance inspection records are worth checking but they are far less reliable than what families actually wrote on Google reviews.
 
 ---
 
