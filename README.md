@@ -18,6 +18,7 @@ Capstone Project | June 2026
 - [Data Sources](#data-sources)
 - [Methodology](#methodology)
 - [Results](#results)
+  - [The Research Question Answered](#the-research-question-answered)
 - [Recommendations](#recommendations)
 - [Next Steps](#next-steps)
 - [Outline of Project](#outline-of-project)
@@ -109,6 +110,22 @@ Both models were evaluated on centers they had never seen during training. I use
 
 ### Results
 
+#### The Research Question Answered
+
+**Do Texas HHSC compliance records and families' Google reviews agree on which daycare centers are high quality — and can a parent rely on compliance records alone to make an informed childcare decision?**
+
+No. The inspection records and the reviews are largely telling different stories.
+
+When I used only inspection records to predict which centers families rated highly, the predictions were right about 64% of the time — barely better than a coin flip. When I used what families actually wrote in their Google reviews, the predictions were right 84% of the time. That gap held across every city in the study.
+
+A parent checking only the inspection record before choosing a daycare is working with information that is far less reliable than what other families already wrote. Reading even two or three reviews gives a more accurate picture than anything in the government database.
+
+| Model | Identifies excellent centers | Average rating error | Explains rating differences |
+|---|---|---|---|
+| TX HHSC Compliance Records (Model 1) | **64%** | **±0.56 stars** | **6%** |
+| Google Review Text — Center Level (Model 2A) | **84%** | **±0.45 stars** | **39%** |
+| Google Review Text — Individual Reviews (Model 2B.2) | **80%** | **±0.49 stars** | **26%** |
+
 **The central finding**
 
 Inspection records are a weak signal for center quality. What families write is a strong one. The gap is large and consistent no matter how I looked at it.
@@ -148,11 +165,7 @@ If I were searching for daycare again today, I would spend almost no time on the
 
 ![Predicted vs actual ratings — all three models side by side](images/comparison/comparison_scatter_all_3_models.png)
 
-| Model | Identifies excellent centers | Average rating error |
-|---|---|---|
-| TX HHSC Compliance Records (Model 1) | **64%** | **±0.56 stars** |
-| Google Review Text — Center Level (Model 2A) | **84%** | **±0.45 stars** |
-| Google Review Text — Individual Reviews (Model 2B.2) | **80%** | **±0.49 stars** |
+
 
 The different approach using individual reviews rather than combining all reviews per center confirmed the same finding. The result held across two independent methods. ![ROC curves — all three models](images/comparison/comparison_roc_all_3_models.png)
 
